@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APIs Gemini Nano</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <nav class="nav">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" id="promptBtn" href="prompt.html">Prompt</a>
+    <a class="nav-link active" id="proofreaderBtn" href="proofreader.html">Proofreader</a>
+  </nav>
+  <main class="main">
+    <div id="downloadprogress" class="disabled"></div>
+    <p>Digite seu texto:</p>
+    <textarea name="text" id="text" cols="30" rows="10"></textarea>
+    <button id="sendTextBtn">Enviar</button>
+
+    <div id="result" class="disabled"></div>
+  </main>
+
+  <script src="proofreader.js"></script>
+</body>
+</html>
