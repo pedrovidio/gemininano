@@ -10,11 +10,7 @@ sendTextBtn.addEventListener('click', async () => {
     const supportsOurUseCase = await Proofreader.availability(options);
 
     console.log(`Proofreader supports our use case: ${supportsOurUseCase}`);
-
-    if (!supportsOurUseCase) {
-      resultInput.textContent = "Este navegador não suporta o Proofreader para este caso de uso.";
-      return;
-    }
+    resultInput.style.display = 'block';
 
     const proofreader = await Proofreader.create({
       includeCorrectionTypes: false,
@@ -27,8 +23,14 @@ sendTextBtn.addEventListener('click', async () => {
       }
     });
 
-    const corrections = await proofreader.proofread("I seen him yesterday at the store, and he bought two loafs of bread.");
+    const inputText = document.getElementById('text');
+    resultInput.textContent = "Analisando texto...";
+
+    const corrections = await proofreader.proofread(inputText.value);
     console.log("Corrections:", corrections);
+
+    resultInput.textContent = "Correção sugerida:" + corrections.correctedInput;
+
   } catch (error) {
     console.error("Erro ao usar Proofreader:", error);
     resultInput.textContent = `Erro: ${error.message || error}`;
