@@ -6,7 +6,7 @@ const downloadprogress = document.getElementById('downloadprogress');
 
 sendTextBtn.addEventListener('click', async () => {
   try {
-    const options = { includeCorrectionTypes: false, expectedInputLanguages: ["en"] };
+    const options = { includeCorrectionTypes: false };
     const supportsOurUseCase = await Proofreader.availability(options);
 
     console.log(`Proofreader supports our use case: ${supportsOurUseCase}`);
