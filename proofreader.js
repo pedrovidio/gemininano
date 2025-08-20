@@ -14,7 +14,6 @@ sendTextBtn.addEventListener('click', async () => {
 
     const proofreader = await Proofreader.create({
       includeCorrectionTypes: false,
-      expectedInputLanguages: ["en"],
       monitor(m) {
         m.addEventListener('downloadprogress', (e) => {
           const progress = (e.loaded * 100).toFixed(1);
